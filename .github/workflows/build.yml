@@ -1,15 +1,9 @@
 name: Build
 
 on:
+  # GitHub runs only for releases (tag push) or by hand; day-to-day checks run locally/Forgejo
   push:
-    branches:
-      - 'main'
-    paths-ignore:
-      - '**/LICENSE'
-      - '**/README.md'
-      - '**/build.yml'
-      - '**/.gitignore'
-      - '**/.gitattributes'
+    tags: ['v*']
   workflow_dispatch:
 jobs:
   build:
